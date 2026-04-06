@@ -2,18 +2,36 @@
 
 {% block content %}
 
-<h2>Blogs</h2>
+<h2 class="mb-4 text-center">Our Blogs</h2>
+
+<div class="row">
 
 {% for blog in blogs %}
 
-<h3>{{blog.title}}</h3>
+<div class="col-md-4 mb-4 fade-in">
 
-<img src="{{blog.image.url}}" width="300">
+    <div class="card blog-card">
 
-<p>{{blog.content|truncatewords:30}}</p>
+        <img src="{{blog.image.url}}" class="card-img-top">
 
-<hr>
+        <div class="card-body">
+
+            <h5 class="card-title">{{blog.title}}</h5>
+
+            <p class="card-text">
+                {{blog.content|truncatewords:20}}
+            </p>
+
+            <a href="#" class="btn btn-outline-primary">Read More</a>
+
+        </div>
+
+    </div>
+
+</div>
 
 {% endfor %}
+
+</div>
 
 {% endblock %}
